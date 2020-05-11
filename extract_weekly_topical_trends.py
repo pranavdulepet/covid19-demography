@@ -174,6 +174,8 @@ if __name__ == '__main__':
     gender = 'M'
 
     utils = DataUtils()
+    # the code assumes week2comments pkl file (e.g., week2comments.M.pkl) in pickle/
+    # the file is a dictionary pickle object: week -> list of post and comments for that week
     data = utils.load_and_clean_data('week2comments.' + gender)
     Serialization.save_obj(data, 'clean.data.' + gender)
 
