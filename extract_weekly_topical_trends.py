@@ -141,7 +141,7 @@ def explore_temporal_trends(topics, gender):
     for tp in words_only: words.extend(tp[1])
 
     weekly_stats = dict()
-    data = Serialization.load_obj('w2c.' + gender)
+    data = Serialization.load_obj('week2comments.' + gender)
     for week in range(len(data)):
         if week not in data: continue
         print('processing data for week', week)
@@ -174,7 +174,7 @@ if __name__ == '__main__':
     gender = 'M'
 
     utils = DataUtils()
-    data = utils.load_and_clean_data('w2c.' + gender)
+    data = utils.load_and_clean_data('week2comments.' + gender)
     Serialization.save_obj(data, 'clean.data.' + gender)
 
     modeling = TopicModeling()
