@@ -12,8 +12,14 @@ class Serialization:
             return pickle.load(f)
 
 types = ["v", "a", "d"]
-for e in types:
-    original_regressor = Serialization.load_obj('./pickle/binom.model.' + e)
-    new_regressor = Serialization.load_obj('./pickle/retrained_new_binom.model.' + e)
-    print("Original Coefficients:", original_regressor.params)
-    print("New Coefficients:", new_regressor.params)
+with open("coefficients_comparison.txt", "w") as file:
+    for e in types:
+        original_regressor = Serialization.load_obj('./pickle/binom.model.' + e)
+        new_regressor = Serialization.load_obj('./pickle/retrained_new_binom.model.' + e)
+        
+        file.write(f"Type: {e}\n")
+        file.write("Original Coefficients:\n")
+        file.write(str(original_regressor.params))
+        file.write("\n\nNew Coefficients:\n")
+        file.write(str(new_regressor.params))
+        file.write("\n\n" + "="*50 + "\n\n")
