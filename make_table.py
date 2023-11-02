@@ -4,11 +4,11 @@ from prettytable import PrettyTable
 # Load CSV files
 dfs = {
     'M_v': pd.read_csv('./data.gender.vad.scores/data.M.v.csv'),
-    'M_a': pd.read_csv('./data.gender.vad.scores/data.M.a.csv'),
-    'M_d': pd.read_csv('./data.gender.vad.scores/data.M.d.csv'),
+    # 'M_a': pd.read_csv('./data.gender.vad.scores/data.M.a.csv'),
+    # 'M_d': pd.read_csv('./data.gender.vad.scores/data.M.d.csv'),
     'F_v': pd.read_csv('./data.gender.vad.scores/data.F.v.csv'),
-    'F_a': pd.read_csv('./data.gender.vad.scores/data.F.a.csv'),
-    'F_d': pd.read_csv('./data.gender.vad.scores/data.F.d.csv'),
+    # 'F_a': pd.read_csv('./data.gender.vad.scores/data.F.a.csv'),
+    # 'F_d': pd.read_csv('./data.gender.vad.scores/data.F.d.csv'),
 }
 
 # Function to compute mean and standard deviation
@@ -32,5 +32,5 @@ for name, df in dfs.items():
     mean_val, std_val = compute_stats(df, mean_key, std_key)
     table.add_row([name, mean_val, std_val])
 
-with open('table.txt', 'w') as f:
+with open('new_table.txt', 'w') as f:
     f.write(str(table))
